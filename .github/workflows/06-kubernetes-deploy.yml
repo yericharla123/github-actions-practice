@@ -1,0 +1,22 @@
+name: Kubernetes Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check Kubernetes manifests
+        run: |
+          kubectl apply --dry-run=client -f k8s/
+
+      - name: Show Kubernetes manifests
+        run: |
+          kubectl version --client
+          kubectl get -f k8s/
+          
