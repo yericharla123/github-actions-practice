@@ -1,19 +1,11 @@
-name: feature-pipeline
+name: Feature Pipeline
 
 on:
   workflow_dispatch:
 
 jobs:
   feature-pipeline:
-    if: github.ref_name != 'main'
-
     uses: yericharla123/workflows/.github/workflows/nodejs-feature-pipeline.yml@main
-
     with:
       project: roboshop
       component: catalogue
-
-    secrets: inherit
-
-    permissions:
-      contents: read
