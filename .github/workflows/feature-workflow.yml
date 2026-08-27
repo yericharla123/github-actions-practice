@@ -6,6 +6,12 @@ on:
 jobs:
   feature-pipeline:
     uses: yericharla123/workflows/.github/workflows/nodejs-feature-pipeline.yml@main
+
     with:
       project: roboshop
       component: catalogue
+
+    secrets: inherit
+
+    permissions:
+      contents: read
