@@ -11,7 +11,3 @@ jobs:
       project: roboshop
       component: catalogue
 
-    secrets: inherit
-
-    permissions:
-      contents: read
