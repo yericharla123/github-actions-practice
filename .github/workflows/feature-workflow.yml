@@ -1,15 +1,19 @@
-name: Feature Pipeline
+name: feature-pipeline
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
-  test:
-    runs-on: self-hosted
+  feature-pipeline:
+    if: github.ref_name != 'main'
 
-    steps:
-      - name: Test runner
-        run: |
-          echo "Hello from GitHub Actions"
-          echo "Running on:"
-          hostname
-          whoami
+    uses: yericharla123/workflows/.github/workflows/nodejs-feature-pipeline.yml@main
+
+    with:
+      project: roboshop
+      component: catalogue
+
+    secrets: inherit
+
+    permissions:
+      contents: read
