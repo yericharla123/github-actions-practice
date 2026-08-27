@@ -4,14 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  feature-pipeline:
-    if: github.ref_name != 'main'
+  test:
+    runs-on: self-hosted
 
-    uses: ./.github/workflows/nodejs-feature-pipeline.yml
-
-    with:
-      project: roboshop
-      component: catalogue
-
-    permissions:
-      contents: read
+    steps:
+      - name: Test runner
+        run: |
+          echo "Hello from GitHub Actions"
+          echo "Running on:"
+          hostname
+          whoami
