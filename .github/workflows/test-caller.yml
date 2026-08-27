@@ -1,0 +1,11 @@
+name: Test Caller
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-reusable:
+    uses: yericharla123/workflows/.github/workflows/test-reusable.yml@main
+
+    with:
+      message: "Hello from github-actions-practice"
