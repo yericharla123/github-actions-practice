@@ -1,0 +1,18 @@
+name: Test Trigger
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Test EC2 Runner
+        run: |
+          echo "================================"
+          echo "GitHub Actions is working!"
+          echo "Hello from EC2 self-hosted runner"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
+          echo "================================"
