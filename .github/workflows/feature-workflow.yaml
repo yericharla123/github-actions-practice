@@ -1,0 +1,17 @@
+name: Feature Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  feature-pipeline:
+    if: github.ref_name != 'main'
+
+    uses: ./.github/workflows/nodejs-feature-pipeline.yml
+
+    with:
+      project: roboshop
+      component: catalogue
+
+    permissions:
+      contents: read
